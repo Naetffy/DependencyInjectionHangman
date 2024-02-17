@@ -27,7 +27,7 @@ public class GameModel {
     private int incorrectCount;
     private int correctCount;
     private LocalDateTime dateTime;
-    private int gameScore;
+    private GameScore score;
     private int[] lettersUsed;
 
 
@@ -39,14 +39,14 @@ public class GameModel {
 
 
     @Autowired
-    public GameModel(HangmanDictionary dictionary) {
+    public GameModel(HangmanDictionary dictionary, GameScore score) {
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary = dictionary;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        this.score = score;
 
     }
 
@@ -57,7 +57,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        score.reset();
     }
 
     //setDateTime
@@ -79,10 +79,10 @@ public class GameModel {
         }
         if (positions.size() == 0) {
             incorrectCount++;
-            gameScore -= 10;
         } else {
             correctCount += positions.size();
         }
+        score.calculateScore(correctCount,incorrectCount);
         return positions;
 
     }
@@ -92,18 +92,6 @@ public class GameModel {
     public String getDateTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM-dd-uuuu hh:mm:ss a");
         return dtf.format(dateTime);
-    }
-
-    //getScore
-    //purpose: returns current score value
-    public int getScore() {
-        return gameScore;
-    }
-
-    //setScore
-    //purpose: sets score value to points
-    public void setScore(int score) {
-        this.gameScore = score;
     }
 
     //name: selectRandomWord()
@@ -129,13 +117,13 @@ public class GameModel {
     //method: getGameScore
     //purpose: return current score
     public int getGameScore() {
-        return gameScore;
+        return score.getScore();
     }
 
     //method: setGameScore
     //purpose: set current game score
     public void setGameScore(int gameScore) {
-        this.gameScore = gameScore;
+        this.score.setScore(gameScore);
     }
 
     //method: getWordLength
