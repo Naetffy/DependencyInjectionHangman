@@ -3,10 +3,10 @@ package co.edu.escuelaing.hangman;
 import co.edu.escuelaing.hangman.controller.*;
 import co.edu.escuelaing.hangman.model.*;
 import co.edu.escuelaing.hangman.model.dictionary.HangmanDictionary;
+import co.edu.escuelaing.hangman.model.scores.GameScore;
 import co.edu.escuelaing.hangman.setup.factoryMethod.HangmanFactoryMethod;
 import co.edu.escuelaing.hangman.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;

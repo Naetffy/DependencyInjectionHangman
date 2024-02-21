@@ -13,6 +13,7 @@
 package co.edu.escuelaing.hangman.model;
 
 import co.edu.escuelaing.hangman.model.dictionary.HangmanDictionary;
+import co.edu.escuelaing.hangman.model.scores.GameScore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -24,8 +25,6 @@ import java.util.Scanner;
 
 
 public class GameModel {
-    private int incorrectCount;
-    private int correctCount;
     private LocalDateTime dateTime;
     private GameScore score;
     private int[] lettersUsed;
@@ -44,8 +43,6 @@ public class GameModel {
         this.dictionary = dictionary;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
-        incorrectCount = 0;
-        correctCount = 0;
         this.score = score;
 
     }
@@ -55,8 +52,6 @@ public class GameModel {
     public void reset() {
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
-        incorrectCount = 0;
-        correctCount = 0;
         score.reset();
     }
 
@@ -77,12 +72,12 @@ public class GameModel {
                 positions.add(i);
             }
         }
-        if (positions.size() == 0) {
-            incorrectCount++;
+        if (positions.isEmpty()) {
+            score.increaseIncorrectCount(1);
         } else {
-            correctCount += positions.size();
+            score.increaseCorrectCount(positions.size());
         }
-        score.calculateScore(correctCount,incorrectCount);
+        score.calculateScore();
         return positions;
 
     }
@@ -105,13 +100,13 @@ public class GameModel {
     //method: getIncorrectCount
     //purpose: return number of incorrect guesses made so far
     public int getIncorrectCount() {
-        return incorrectCount;
+        return score.getIncorrectCount();
     }
 
     //method: getCorrectCount
     //purpose: return number of correct guesses made so far
     public int getCorrectCount() {
-        return correctCount;
+        return score.getCorrectCount();
     }
 
     //method: getGameScore
