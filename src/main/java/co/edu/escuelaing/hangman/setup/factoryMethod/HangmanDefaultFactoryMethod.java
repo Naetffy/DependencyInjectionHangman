@@ -1,7 +1,6 @@
 package co.edu.escuelaing.hangman.setup.factoryMethod;
 
-import co.edu.escuelaing.hangman.model.English;
-import co.edu.escuelaing.hangman.model.GameScore;
+import co.edu.escuelaing.hangman.model.scores.GameScore;
 import co.edu.escuelaing.hangman.model.Language;
 import co.edu.escuelaing.hangman.model.dictionary.HangmanDictionary;
 import co.edu.escuelaing.hangman.view.HangmanPanel;
@@ -19,7 +18,7 @@ public class HangmanDefaultFactoryMethod implements HangmanFactoryMethod {
             @Qualifier("spanishLanguage") Language language,
             @Qualifier("spanishDictionary") HangmanDictionary dictionary,
             @Qualifier("hangmanStickmanPanel") HangmanPanel hangmanPanel,
-            @Qualifier("originalScore") GameScore score
+            @Qualifier("powerBonusScore") GameScore score
             ) {
         this.language = language;
         this.dictionary = dictionary;

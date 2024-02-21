@@ -69,7 +69,7 @@ public class GameOverController {
         panel.addAncestorListener(new AncestorListener() {
             @Override
             public void ancestorAdded(AncestorEvent event) {
-                panel.getScoreLabel().setText(lan.getFinalScorelabel() + gameControllerReference.getModel().getScore());
+                panel.getScoreLabel().setText(lan.getFinalScorelabel() + gameControllerReference.getModel().getGameScore());
             }
 
             @Override

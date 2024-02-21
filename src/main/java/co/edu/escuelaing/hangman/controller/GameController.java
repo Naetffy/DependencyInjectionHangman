@@ -68,7 +68,8 @@ public class GameController {
                 panel.getPoints().setText(lan.getPointsNameLabel() + Integer.toString(model.getGameScore()));
                 int incorrectCount = model.getIncorrectCount();
                 int correctCount = model.getCorrectCount();
-                if (incorrectCount > 5 || correctCount == model.getWordLength()) {
+                int gameScore = model.getGameScore();
+                if (incorrectCount > 5 || correctCount == model.getWordLength() || gameScore < 0) {
                     panel.getSkipButton().setEnabled(false);
                     for (JButton button : panel.getKeyboardButtonArray()) {
                         button.setEnabled(false);
@@ -85,7 +86,7 @@ public class GameController {
             });
         }
 
-        model.setScore(100);
+        model.setGameScore(100);
 
         panel.addAncestorListener(new AncestorListener() {
             @Override
@@ -115,7 +116,7 @@ public class GameController {
         panel.getSkipButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                model.setScore(0);
+                model.setGameScore(0);
                 rootController.changeVisibleCard(GUI.GAME_OVER_KEY);
             }
 
