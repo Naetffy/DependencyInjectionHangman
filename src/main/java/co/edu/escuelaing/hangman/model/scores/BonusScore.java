@@ -12,8 +12,9 @@ public class BonusScore extends GameScore {
     }
 
     @Override
-    public void calculateScore() {
+    public int calculateScore() {
         gameScore = correctCount * 10 - incorrectCount * 5;
+        return gameScore;
     }
 
     @Override

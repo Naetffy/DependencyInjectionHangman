@@ -1,10 +1,12 @@
 package co.edu.escuelaing.hangman.model.scores;
 
 public abstract class GameScore {
+
+
     protected int gameScore;
     protected int correctCount;
     protected int incorrectCount;
-    public abstract void calculateScore();
+    public abstract int calculateScore();
     public abstract void reset();
 
     public int getScore(){return gameScore;}

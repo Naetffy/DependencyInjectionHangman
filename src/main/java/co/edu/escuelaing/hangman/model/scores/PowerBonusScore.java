@@ -14,11 +14,13 @@ public class PowerBonusScore extends GameScore{
     }
 
     @Override
-    public void calculateScore() {
-        gameScore = (correctCount > 0?(int)Math.pow(5,correctCount) : 0) - ( incorrectCount*8);
+    public int calculateScore() {
+        long tempScore = (correctCount > 0 ? (long) Math.pow(5, correctCount) : 0) - ((long) incorrectCount * 8);
+        gameScore = tempScore > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) tempScore;
         if (gameScore > 500) gameScore = 500;
-
+        return gameScore;
     }
+
 
     @Override
     public void reset() {

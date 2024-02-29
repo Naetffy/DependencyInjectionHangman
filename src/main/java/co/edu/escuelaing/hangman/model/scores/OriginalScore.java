@@ -10,8 +10,9 @@ public class OriginalScore extends GameScore {
         gameScore = 100;
     }
     @Override
-    public void calculateScore() {
+    public int calculateScore() {
         gameScore = 100-(incorrectCount * 10);
+        return gameScore;
     }
     @Override
     public void reset() {
