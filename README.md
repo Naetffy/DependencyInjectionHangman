@@ -55,6 +55,8 @@ principio de inversión de dependencias:
     git add .			
     git commit -m "especificación métodos"
     ```
+    ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/faee15be-0505-40c9-be56-f370662b8833)
+
 
 5. Actualice el archivo `pom.xml` e incluya las dependencias para la ultima versión de JUnit.
 
@@ -63,29 +65,39 @@ principio de inversión de dependencias:
    comentarios iniciales, especifique las clases de equivalencia para
    las tres variantes de GameScore, e identifique
    condiciones de frontera.
+   ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/2ecccb0f-19a2-49a6-8766-e29ac55e58e1)
+   ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/6350bcbb-6c74-4246-8f01-6af216c12c38)
+   ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/8a795ff1-d469-4c30-95da-ea3fefe48064)
 
-7. Para cada clase de equivalencia y condición de frontera, implemente
+
+
+
+8. Para cada clase de equivalencia y condición de frontera, implemente
    una prueba utilizando JUnit.
+   
+   ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/159e6dba-5489-42f5-8aa9-51e915f93634)
 
-8. Haga commit de lo realizado hasta ahora. Desde la terminal:
+10. Haga commit de lo realizado hasta ahora. Desde la terminal:
 
     ```sh		
     git add .			
     git commit -m "implementación pruebas"
     ```
 
-9. Realice la implementación de los 'cascarones' realizados anteriormente.
+11. Realice la implementación de los 'cascarones' realizados anteriormente.
    Asegúrese que todas las pruebas unitarias creadas en los puntos anteriores
    se ejecutan satisfactoriamente.
 
-10. Al finalizar haga un nuevo commit:
+   ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/fd54ac62-4b07-47b1-9fd4-1c7916f2411f)
+
+12. Al finalizar haga un nuevo commit:
 
     ```sh		
     git add .			
     git commit -m "implementación del modelo"
     ```
 
-11. Para sincronizar el avance en el respositorio y NO PERDER el trabajo, use
+13. Para sincronizar el avance en el respositorio y NO PERDER el trabajo, use
     el comando de GIT para enviar los cambios:
 
     ```sh
@@ -102,6 +114,9 @@ constructor de la clase GUI y HangmanFactoryMethod).
 1. Utilizando el HangmanFactoryMethod (MétodoFabrica) incluya el
    OriginalScore a la configuración.
 
+   ![image](https://github.com/Naetffy/DependencyInjectionHangman/assets/112002572/775a47ea-a73d-4b7f-a3c7-4e25bc1c837c)
+
+   
 * Mediante la configuración de la Inyección de
   Dependencias se pueda cambiar el comportamiento del mismo, por
   ejemplo:
