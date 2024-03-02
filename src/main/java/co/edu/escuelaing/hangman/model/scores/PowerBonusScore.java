@@ -6,13 +6,6 @@ import java.lang.Math;
 
 @Component("powerBonusScore")
 public class PowerBonusScore extends GameScore{
-
-    public PowerBonusScore(){
-        incorrectCount = 0;
-        correctCount = 0;
-        gameScore = 0;
-    }
-
     @Override
     public int calculateScore() {
         long tempScore = (correctCount > 0 ? (long) Math.pow(5, correctCount) : 0) - ((long) incorrectCount * 8);
@@ -24,8 +17,5 @@ public class PowerBonusScore extends GameScore{
 
     @Override
     public void reset() {
-        incorrectCount = 0;
-        correctCount = 0;
-        gameScore = 0;
     }
 }
